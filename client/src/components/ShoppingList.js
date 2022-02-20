@@ -22,7 +22,7 @@ const ShoppingList = () => {
     dispatch(getAllNames());
     setTimeout(() => {
       dispatch(loading(false));
-    }, 500);
+    }, 1500);
   }, [dispatch, refresh]);
 
   return (
@@ -37,7 +37,8 @@ const ShoppingList = () => {
               }}
             >
               <p style={{ paddingLeft: 5 }}>
-                🗳 Sorry Nothing to show please add new item!
+                🗳 Sorry Nothing to show please add new item Or ❗️ Refresh the
+                page!
               </p>
             </div>
           ) : (
@@ -58,7 +59,7 @@ const ShoppingList = () => {
                           dispatch(deleteName(deleteItem));
                           setTimeout(() => {
                             dispatch(loading(false));
-                          }, 500);
+                          }, 2500);
                         }}
                       >
                         &times;

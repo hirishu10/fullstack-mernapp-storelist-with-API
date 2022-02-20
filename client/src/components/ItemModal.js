@@ -36,7 +36,7 @@ const ItemModal = () => {
       toggle();
       setTimeout(() => {
         dispatch(loading(false));
-      }, 2000);
+      }, 1000);
     }
   };
 

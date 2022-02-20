@@ -59,7 +59,7 @@ const ShoppingList = () => {
                           dispatch(deleteName(deleteItem));
                           setTimeout(() => {
                             dispatch(loading(false));
-                          }, 2000);
+                          }, 1000);
                         }}
                       >
                         &times;

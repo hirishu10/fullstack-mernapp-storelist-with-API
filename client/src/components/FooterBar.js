@@ -8,7 +8,7 @@ const FooterBar = () => {
       style={{
         width: "100%",
         height: 50,
-        marginTop: 443,
+        marginTop: 444,
         display: "flex",
         alignItems: "center",
       }}

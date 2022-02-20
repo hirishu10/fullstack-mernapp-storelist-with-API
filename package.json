@@ -1,0 +1,38 @@
+{
+  "name": "mern_app_storelist",
+  "version": "1.0.0",
+  "description": "Web site created using MERN Full Stack",
+  "main": "server.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "Rishu Chowdhary <hi.10rishu@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "concurrently": "^7.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.2"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "mern",
+    "mern-app",
+    "full-stak",
+    "react",
+    "node",
+    "mongodb",
+    "express",
+    "store-list",
+    "database"
+  ]
+}

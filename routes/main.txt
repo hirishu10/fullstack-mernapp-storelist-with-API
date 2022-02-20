@@ -1,0 +1,14 @@
+# Notes:
+
+API End Points:
+1. /api/items => Get All the Items inside the databased collection
+
+2. /api/items/add => Add new item inside the databased collection
+
+3. /api/items/delete => Delete items from the databased collection
+
+4. /api/items/length => Get the total items from the databased collection
+
+5. /api/items/update => *BETA (not do anything right now maybe in future releases)
+
+

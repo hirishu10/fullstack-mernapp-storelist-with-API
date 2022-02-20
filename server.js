@@ -12,12 +12,9 @@ const app = express();
 // for POST if we have body it will help to display
 app.use(bodyParser.json());
 
-// get the MongoURI
-const db = process.env.MONGO_URI;
-
 // Connect the mongoDB using mongoose
 mongoose
-  .connect(db)
+  .connect(process.env.MONGO_URI)
   .then((ok) => {
     console.log(`MongoDB Connected Successfully`);
   })

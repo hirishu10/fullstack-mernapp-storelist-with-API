@@ -23,7 +23,7 @@ const ShoppingList = () => {
     setTimeout(() => {
       dispatch(loading(false));
     }, 1500);
-  }, [dispatch, refresh]);
+  }, [dispatch]);
 
   return (
     <>
@@ -59,7 +59,7 @@ const ShoppingList = () => {
                           dispatch(deleteName(deleteItem));
                           setTimeout(() => {
                             dispatch(loading(false));
-                          }, 2500);
+                          }, 2000);
                         }}
                       >
                         &times;

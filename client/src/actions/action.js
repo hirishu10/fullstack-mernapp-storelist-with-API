@@ -32,6 +32,7 @@ const addName = (item) => (dispatch) => {
         type: ADD_NAME,
         payload: res.data,
       });
+      dispatch(getAllNames());
     })
     .catch((err) => {
       console.log("err", err);
@@ -47,6 +48,7 @@ const deleteName = (item) => (dispatch) => {
         type: DELETE_NAME,
         payload: item.id,
       });
+      dispatch(getAllNames());
     })
     .catch((err) => {
       console.log("err", err);

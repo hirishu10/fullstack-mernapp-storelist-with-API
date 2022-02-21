@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const path = require("path");
 require("dotenv").config();
 
@@ -9,8 +8,8 @@ const items = require("./routes/api/items");
 
 const app = express();
 
-// for POST if we have body it will help to display
-app.use(bodyParser.json());
+// for POST if we have body it will help to display | removing body-parser express have default now
+app.use(express.json());
 
 // Connect the mongoDB using mongoose
 mongoose

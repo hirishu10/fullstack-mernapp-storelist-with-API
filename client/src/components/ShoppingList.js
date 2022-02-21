@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   ListGroup,
@@ -11,6 +11,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllNames, deleteName, loading } from "../actions/action";
 
 const ShoppingList = () => {
+  const [loadMessage, setLoadMessage] = useState(
+    "📥  Data updating please wait....."
+  );
   const getState = useSelector((state) => state.actionCombined);
   const dispatch = useDispatch();
 
@@ -19,9 +22,11 @@ const ShoppingList = () => {
   let dataLength = getState.length;
 
   useEffect(() => {
+    setLoadMessage("📩  Data receiving from the server..... ");
     dispatch(getAllNames());
     setTimeout(() => {
       dispatch(loading(false));
+      setLoadMessage("📥  Data updating please wait.....");
     }, 1500);
   }, [dispatch]);
 
@@ -52,6 +57,7 @@ const ShoppingList = () => {
                         color="danger"
                         size="sm"
                         onClick={() => {
+                          setLoadMessage("📤 Data removing please wait.....");
                           const deleteItem = {
                             id: _id,
                           };
@@ -59,7 +65,10 @@ const ShoppingList = () => {
                           dispatch(deleteName(deleteItem));
                           setTimeout(() => {
                             dispatch(loading(false));
-                          }, 1000);
+                            setLoadMessage(
+                              "📥  Data updating please wait....."
+                            );
+                          }, 2000);
                         }}
                       >
                         &times;
@@ -81,9 +90,7 @@ const ShoppingList = () => {
             <div>
               <Spinner size="sm">Loading...</Spinner>
             </div>
-            <p style={{ paddingLeft: 5 }}>
-              Data receiving from the server.....
-            </p>
+            <p style={{ paddingLeft: 5 }}>{loadMessage}</p>
           </div>
         )}
       </Container>

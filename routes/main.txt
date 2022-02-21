@@ -1,14 +1,15 @@
 # Notes:
 
 API End Points:
-1. /api/items => Get All the Items inside the databased collection
 
-2. /api/items/add => Add new item inside the databased collection
+> With the help of API we can push the data from server to the database collection ↓
 
-3. /api/items/delete => Delete items from the databased collection
+> => API (Application Programming Interface): 
 
-4. /api/items/length => Get the total items from the databased collection
+- /api/items => Get All the Items inside the database collection
 
-5. /api/items/update => *BETA (not do anything right now maybe in future releases)
+- /api/items/add => Add new item inside the database collection (provide the **name** parameter in the body and add the same)
 
+- /api/items/delete => Delete item from the database collection (/delete/**id:** provide the id and delete the same)
 
+- /api/items/length => Get the length of total items from the database collection

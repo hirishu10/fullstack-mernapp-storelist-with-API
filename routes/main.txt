@@ -13,3 +13,6 @@ API End Points:
 - /api/items/delete => Delete item from the database collection (/delete/**id:** provide the id and delete the same)
 
 - /api/items/length => Get the length of total items from the database collection
+
+- /api/items/update => Currently don't do anything but in the future release (*Beta)
+

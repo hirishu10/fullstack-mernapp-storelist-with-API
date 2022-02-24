@@ -23,7 +23,10 @@ const ItemModal = () => {
   //
   const dispatch = useDispatch();
 
+  const [buttonDissabled, setButtonDissabled] = useState(false);
+
   const toggleDrawer = () => {
+    setButtonDissabled(true);
     if (
       userDetails.token !== undefined &&
       userDetails.token !== null &&
@@ -31,8 +34,10 @@ const ItemModal = () => {
     ) {
       setName("");
       setModal(!modal);
+      setButtonDissabled(false);
     } else {
       alert("Sorry! you can't add new item please login or register with us.");
+      setButtonDissabled(false);
     }
   };
 
@@ -58,6 +63,7 @@ const ItemModal = () => {
         color="dark"
         style={{ marginBottom: "2rem" }}
         onClick={toggleDrawer}
+        disabled={buttonDissabled}
       >
         Add Item 📦
       </Button>

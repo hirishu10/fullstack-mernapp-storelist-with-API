@@ -52,6 +52,8 @@ const AppNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loginError, setLoginError] = useState("");
 
+  const [buttonDissabled, setButtonDissabled] = useState(false);
+
   // method
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -92,12 +94,13 @@ const AppNavbar = () => {
    * Dispatch the login function
    */
   const loginSubmit = () => {
-    // console.log("loginEmail :>>", loginEmail);
-    // console.log("loginPassword :>>", loginPassword);
+    setButtonDissabled(true);
     if (!loginEmail || !loginPassword) {
       setLoginError("Please Enter all fields");
+      setButtonDissabled(false);
     } else {
       dispatch(loginAccount(loginEmail, loginPassword));
+      setButtonDissabled(false);
     }
   };
 
@@ -105,9 +108,6 @@ const AppNavbar = () => {
    * Dispatch the Register function
    */
   const registerOnSubmit = () => {
-    // console.log("registerEmail :>> ", registerEmail);
-    // console.log("registerName :>> ", registerName);
-    // console.log("registerPassword :>> ", registerPassword);
     if (!registerName || !registerEmail || !registerPassword) {
       setRegisterError("Please Enter all fields");
     } else {
@@ -267,6 +267,7 @@ const AppNavbar = () => {
               color="white"
               onClick={loginSubmit}
               className="btn btn-outline-success"
+              disabled={buttonDissabled}
             >
               Login ✅
             </Button>
@@ -345,6 +346,7 @@ const AppNavbar = () => {
               color="white"
               onClick={registerOnSubmit}
               className="btn btn-outline-success"
+              disabled={buttonDissabled}
             >
               Register ✅
             </Button>

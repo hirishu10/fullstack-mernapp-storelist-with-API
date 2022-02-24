@@ -1,6 +1,6 @@
 {
   "name": "mern_app_storelist",
-  "version": "1.1.0 Beta",
+  "version": "1.1.0",
   "description": "Web site created using MERN Full Stack",
   "main": "server.js",
   "engines": {

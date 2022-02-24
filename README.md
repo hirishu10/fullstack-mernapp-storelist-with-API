@@ -6,7 +6,13 @@
 
 **Website:** https://mernstorelist.herokuapp.com/
 
-Creating full stack store list MERN App with the help of MongoDB, Express, React, Node.js, Redux, API(Application Programming Interface), etc.
+> Some credentials for testing our app
+
+- **Email:** mernstorelist.com
+
+- **Password:** password
+
+Creating full stack store list MERN App with the help of MongoDB, Express, React, Node.js, Redux, JWT (JSON web token), API(Application Programming Interface), etc.
 
 - [Store List](#store-list)
 - [Add Item](#add-item)

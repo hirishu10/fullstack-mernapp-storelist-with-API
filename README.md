@@ -1,5 +1,9 @@
 # Full Stack MERN App (Store-List)
 
+**Update:** Added Login/Register UI with the help of JWT Token (Json Web Token)
+
+**Version:** 1.1.0
+
 **Website:** https://mernstorelist.herokuapp.com/
 
 Creating full stack store list MERN App with the help of MongoDB, Express, React, Node.js, Redux, API(Application Programming Interface), etc.
@@ -50,6 +54,11 @@ Creating full stack store list MERN App with the help of MongoDB, Express, React
 - /api/items/delete => Delete item from the database collection (/delete/**id:** provide the id and delete the same)
 
 - /api/items/length => Get the length of total items from the database collection
+
+> For user Register/Login
+
+- /api/users/register => Create account with this API for free to use the mern store list app
+- /api/auth => Login in the account with credentials and receive the Token
 
 <!-- author  -->
 

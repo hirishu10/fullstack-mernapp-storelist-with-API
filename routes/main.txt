@@ -16,3 +16,8 @@ API End Points:
 
 - /api/items/update => Currently don't do anything but in the future release (*Beta)
 
+> For user Register/Login
+
+- /api/users/register => Create account with this API for free to use the mern store list app
+
+- /api/auth => Login in the account with credentials and receive the Token

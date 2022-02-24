@@ -5,6 +5,7 @@ require("dotenv").config();
 
 // Get All the Route Folder
 const items = require("./routes/api/items");
+// const users = require("./routes/api/users"); // adding directly below
 
 const app = express();
 
@@ -22,6 +23,8 @@ mongoose
   });
 
 app.use("/api/items", items);
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 // Static Page for the Website
 if (process.env.NODE_ENV === "production") {

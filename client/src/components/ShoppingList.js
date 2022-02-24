@@ -11,6 +11,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllNames, deleteName, loading } from "../actions/action";
 
 const ShoppingList = () => {
+  const userState = useSelector((state) => state.loginRegisterReducer);
+  const userDetails = userState;
+
   const [loadMessage, setLoadMessage] = useState(
     "📥  Data updating please wait....."
   );
@@ -57,18 +60,28 @@ const ShoppingList = () => {
                         color="danger"
                         size="sm"
                         onClick={() => {
-                          setLoadMessage("📤 Data removing please wait.....");
-                          const deleteItem = {
-                            id: _id,
-                          };
-                          dispatch(loading(true));
-                          dispatch(deleteName(deleteItem));
-                          setTimeout(() => {
-                            dispatch(loading(false));
-                            setLoadMessage(
-                              "📥  Data updating please wait....."
+                          if (
+                            userDetails.token !== undefined &&
+                            userDetails.token !== null &&
+                            userDetails.token !== ""
+                          ) {
+                            setLoadMessage("📤 Data removing please wait.....");
+                            const deleteItem = {
+                              id: _id,
+                            };
+                            dispatch(loading(true));
+                            dispatch(deleteName(userDetails.token, deleteItem));
+                            setTimeout(() => {
+                              dispatch(loading(false));
+                              setLoadMessage(
+                                "📥  Data updating please wait....."
+                              );
+                            }, 2000);
+                          } else {
+                            alert(
+                              "Sorry! you can't delete the item please login or register with us."
                             );
-                          }, 2000);
+                          }
                         }}
                       >
                         &times;

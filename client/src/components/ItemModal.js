@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
   Modal,
@@ -14,14 +14,26 @@ import {
 import { addName, loading } from "../actions/action";
 
 const ItemModal = () => {
+  const userState = useSelector((state) => state.loginRegisterReducer);
+  const userDetails = userState;
+
+  //
   const [modal, setModal] = useState(false);
   const [getName, setName] = useState("");
   //
   const dispatch = useDispatch();
 
-  const toggle = () => {
-    setName("");
-    setModal(!modal);
+  const toggleDrawer = () => {
+    if (
+      userDetails.token !== undefined &&
+      userDetails.token !== null &&
+      userDetails.token !== ""
+    ) {
+      setName("");
+      setModal(!modal);
+    } else {
+      alert("Sorry! you can't add new item please login or register with us.");
+    }
   };
 
   const onSubmit = (e) => {
@@ -31,9 +43,9 @@ const ItemModal = () => {
         name: getName,
       };
       dispatch(loading(true));
-      dispatch(addName(newItem));
+      dispatch(addName(userDetails.token, newItem));
       setName("");
-      toggle();
+      toggleDrawer();
       setTimeout(() => {
         dispatch(loading(false));
       }, 2000);
@@ -42,11 +54,15 @@ const ItemModal = () => {
 
   return (
     <>
-      <Button color="dark" style={{ marginBottom: "2rem" }} onClick={toggle}>
+      <Button
+        color="dark"
+        style={{ marginBottom: "2rem" }}
+        onClick={toggleDrawer}
+      >
         Add Item 📦
       </Button>
       <Modal isOpen={modal}>
-        <ModalHeader toggle={toggle} className="bg-light text-dark">
+        <ModalHeader toggle={toggleDrawer} className="bg-light text-dark">
           Add Item 📦
         </ModalHeader>
         <ModalBody>
@@ -76,7 +92,7 @@ const ItemModal = () => {
           </Button>
           <Button
             color="white"
-            onClick={toggle}
+            onClick={toggleDrawer}
             className="btn btn-outline-danger"
           >
             Cancel ❌
@@ -89,7 +105,7 @@ const ItemModal = () => {
 
 export default ItemModal;
 
-// some code
+// some code for personal use
 // external={
 //   <button
 //     className="close"

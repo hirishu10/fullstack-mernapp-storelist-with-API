@@ -1,6 +1,6 @@
 {
   "name": "mern_app_storelist",
-  "version": "1.0.3",
+  "version": "1.1.0 Beta",
   "description": "Web site created using MERN Full Stack",
   "main": "server.js",
   "engines": {
@@ -17,14 +17,17 @@
   "author": "Rishu Chowdhary <hi.10rishu@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "concurrently": "^7.0.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
+  "proxy": "http://localhost:5000",
   "keywords": [
     "mern",
     "mern-app",
@@ -34,6 +37,11 @@
     "mongodb",
     "express",
     "store-list",
-    "database"
+    "database",
+    "JWT",
+    "token",
+    "Jsonwebtoken",
+    "login-modal",
+    "register-modal"
   ]
 }

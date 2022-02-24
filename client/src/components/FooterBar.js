@@ -24,7 +24,7 @@ const FooterBar = () => {
         {`Made with 🤍  Rishu Chowdhary (MERN App)`}
         <div
           style={{ fontSize: 10 }}
-        >{`MERN APP => MongoDB, Express, React, Node.js, Redux, etc.`}</div>
+        >{`MERN APP => MongoDB, Express, React, Node.js, Redux, JWT, etc.`}</div>
       </div>
       {/*  */}
       <div

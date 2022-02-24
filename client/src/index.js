@@ -4,11 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-//
+// We use React.Fragment rather than React.StrictMode because for my personal use you can choose StrictMode
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <React.Fragment>
     <App />
-  </React.StrictMode>,
+  </React.Fragment>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
 

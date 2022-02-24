@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const authMiddleware = require("../../middleware/authMiddleware");
 
 // Getting the Modal
 const Item = require("../../model/Item");
 
-// GET
+/**
+ * Get all the Items to display
+ */
 router.get("/", (req, res) => {
   Item.find()
     .sort({ date: -1 })
@@ -18,8 +21,12 @@ router.get("/", (req, res) => {
     });
 });
 
-// POST
-router.post("/add", (req, res) => {
+/**
+ * Item add Interface
+ *
+ * PRIVATE - Secure with the JWT Token
+ */
+router.post("/add", authMiddleware, (req, res) => {
   const newItem = new Item({
     name: req.body.name,
   });
@@ -40,8 +47,12 @@ router.post("/add", (req, res) => {
     });
 });
 
-// DELETE
-router.delete("/delete/:id", (req, res) => {
+/**
+ * Item delete Interface
+ *
+ * PRIVATE - Secure with the JWT Token
+ */
+router.delete("/delete/:id", authMiddleware, (req, res) => {
   Item.findByIdAndDelete(req.params.id)
     .then((item) => {
       res.json({
@@ -58,8 +69,12 @@ router.delete("/delete/:id", (req, res) => {
     });
 });
 
-// PUT
-router.put("/update", (req, res) => {
+/**
+ * Item update Interface
+ *
+ * BETA - Curently don't do anything in future versions may do something
+ */
+router.put("/update", authMiddleware, (req, res) => {
   Item.findByIdAndUpdate(req.params.id, { name: req.params.name })
     .then((item) => {
       res.json({
@@ -76,7 +91,10 @@ router.put("/update", (req, res) => {
     });
 });
 
-// GET LENGTH
+/**
+ * Get Item length Interface
+ * Not Mandatory for personal use
+ */
 router.get("/length", (req, res) => {
   Item.find()
     .then((data) => {
@@ -89,4 +107,6 @@ router.get("/length", (req, res) => {
       });
     });
 });
+
+//
 module.exports = router;

@@ -100,7 +100,9 @@ const AppNavbar = () => {
       setButtonDissabled(false);
     } else {
       dispatch(loginAccount(loginEmail, loginPassword));
-      setButtonDissabled(false);
+      setTimeout(() => {
+        setButtonDissabled(false);
+      }, 1000);
     }
   };
 
@@ -108,10 +110,15 @@ const AppNavbar = () => {
    * Dispatch the Register function
    */
   const registerOnSubmit = () => {
+    setButtonDissabled(true);
     if (!registerName || !registerEmail || !registerPassword) {
       setRegisterError("Please Enter all fields");
+      setButtonDissabled(false);
     } else {
       dispatch(registerAccount(registerName, registerEmail, registerPassword));
+      setTimeout(() => {
+        setButtonDissabled(false);
+      }, 1000);
     }
   };
 

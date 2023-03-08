@@ -4,7 +4,7 @@
 
 **Version:** 1.2.0
 
-**Website:** https://mernstorelist.herokuapp.com/
+**Website:** https://mernstorelist.netlify.app/
 
 > Some credentials for testing our app
 
@@ -57,7 +57,7 @@ Creating full stack store list MERN App with the help of MongoDB, Express, React
 
 - /api/items/add => Add new item inside the database collection (provide the **name** parameter in the body and add the same)
 
-- /api/items/delete => Delete item from the database collection (/delete/**id:** provide the id and delete the same)
+- /api/items/remove => Delete item from the database collection (/delete/**id:** provide the id and delete the same)
 
 - /api/items/length => Get the length of total items from the database collection
 
@@ -65,6 +65,8 @@ Creating full stack store list MERN App with the help of MongoDB, Express, React
 
 - /api/users/register => Create account with this API for free to use the mern store list app
 - /api/auth => Login in the account with credentials and receive the Token
+
+> Note: Above APIs are from private API provider however some are publically available for users Please check out the app [https://rishuapi.vercel.app/api](https://rishuapi.vercel.app/api)
 
 <!-- author  -->
 
